@@ -1,11 +1,26 @@
 import os
-from box.exceptions import BoxValueError
 import yaml
 from textSummarizer.logging import logger
-from ensure import ensure_annotations
-from box import ConfigBox
+# `ensure` is an optional dev dependency. Provide a no-op fallback if missing.
+try:
+    from ensure import ensure_annotations
+except Exception:
+    def ensure_annotations(func=None, /, **kwargs):
+        if func is None:
+            def wrapper(f):
+                return f
+            return wrapper
+        return func
 from pathlib import Path
 from typing import Any
+
+# Optional dependency: `python-box`. If not installed, provide fallbacks
+try:
+    from box.exceptions import BoxValueError
+    from box import ConfigBox
+except Exception:
+    BoxValueError = ValueError
+    ConfigBox = dict
 
 
 
