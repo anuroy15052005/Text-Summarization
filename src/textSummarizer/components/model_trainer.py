@@ -34,7 +34,7 @@ class ModelTrainer:
             logging_steps=self.config.logging_steps,
             eval_strategy=self.config.evaluation_strategy,
             eval_steps=self.config.eval_steps,
-            save_steps=1e6,
+            save_steps= 1000000,
             gradient_accumulation_steps=self.config.gradient_accumulation_steps
         )
 
