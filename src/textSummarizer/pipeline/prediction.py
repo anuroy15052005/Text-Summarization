@@ -14,10 +14,10 @@ class PredictionPipeline:
         summary_ids = model.generate(
             input_ids=inputs["input_ids"],
             attention_mask=inputs["attention_mask"],
-            length_penalty=0.8,
+            length_penalty=1.2,
             num_beams=8,
             max_length=60,
-            min_length=10,
+            min_length=20,
             no_repeat_ngram_size=3,
             repetition_penalty=2.5,
             early_stopping=True

@@ -9,13 +9,10 @@ PyYAML
 matplotlib
 torch
 evaluate
-
-# fastapi
-# uvicorn
-# jinja2
-# python-box
-# ensure
-# boto3
-# mypy-boto3-s3
+fastapi
+uvicorn
+jinja2
+python-box
+ensure
 
 -e .
