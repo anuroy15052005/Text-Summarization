@@ -1,13 +1,12 @@
-from textSummarizer.config.configuration import ConfigurationManager
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 class PredictionPipeline:
     def __init__(self):
-        self.config = ConfigurationManager().get_model_evaluation_config()
+        self.model_repo = "anuroy007/pegasus-samsum-summarizer"
 
     def predict(self, text):
-        tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path)
-        model = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path)
+        tokenizer = AutoTokenizer.from_pretrained(self.model_repo)
+        model = AutoModelForSeq2SeqLM.from_pretrained(self.model_repo)
 
         inputs = tokenizer(text, max_length=1024, truncation=True, return_tensors="pt")
 

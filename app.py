@@ -12,3 +12,4 @@ if st.button("Summarize"):
     summary = obj.predict(text)
     st.write("**Summary:**")
     st.write(summary)
+    
